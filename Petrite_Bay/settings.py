@@ -112,7 +112,8 @@ cloudinary.config(
 )
 
 CORS_ORIGIN_WHITELIST = [        
-    "http://localhost:4200",    
+    "http://localhost:4200", 
+    "https://petrite-bay.now.sh",
     "http://127.0.0.1:8080",
     "http://192.168.0.160:8080",
 ]
