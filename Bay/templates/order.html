@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petrite Bay</title>
+</head>
+
+<body>
+
+  <table width="80%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="bbrr" bgcolor="#ffffff" style="border-radius:0px 0px 12px 12px;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="p30-15" style="padding: 60px 30px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+                    <img style="text-align:center; width: 100px; border-radius: 10px 10px 10px 10px;" src="https://res.cloudinary.com/pyra-z/image/upload/v1604865229/logo_rgezwy.jpg" alt="logo">
+                  </td>
+                  <td class="h2"
+                    style="color: black; font-family:'Lato', Arial ,sans-serif; font-size:25px;">
+                    <strong>Pet<span style="color: #CC2936;">rite </span>Bay</strong></td>
+                </tr>
+                <tr>
+                  <td class="h2 pb25"
+                    style="color:#444444 !important; font-family:'Lato', Arial ,sans-serif; font-size:25px; line-height:36px; text-align:center; padding-bottom:25px;">
+                    Order is being processed.</td>
+                </tr>
+                <tr>
+                  <td class="text-center pb25"
+                    style="color:#666666 !important; font-family:'Lato', Arial,sans-serif; font-size:17px; line-height:30px; text-align:center; padding-bottom:25px;">
+                    {% autoescape off %}
+                    Hi there {{name}},<br>
+                    {% endautoescape %}
+                    Your order has been received and is being processed. We shall contact you once we approve the order.<span class="m-hide"><br></span>
+                    Thank you for shopping with us.<span class="m-hide"><br></span>
+                    <span class="m-hide">
+                      <hr></span>
+                    <h4><u>Order Summary</u></h4>
+                    {% autoescape off %}
+                    <p>Receipt no: {{receipt_no}}</p>
+                    <table width="100%" border="0" cellspacing="5" cellpadding="2">
+                      <thead>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Cost</th>
+                      </thead>
+                      <tbody>
+                        {% for prod in orders %}
+                        <tr>
+                          <td>
+                            <img class="media-object" src="https://res.cloudinary.com/dycuxocgb/{{prod.product.image}}"
+                              style="width: 72px; height: 72px;"><br>
+                            <p>{{prod.product.name}}</p>
+                          </td>
+                          <td>
+                            {{prod.quantity}}
+                          </td>
+                          <td>
+                            ksh {{prod.units_price}}
+                          </td>
+                        </tr>
+                        {% endfor%}
+                      </tbody>
+                    </table>
+                    <hr>
+                    Total Cost: ksh {{total}}
+                    {% endautoescape %}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <p>Regards,</p>
+  <p>Petrite Bay.</p>
+</body>
+
+</html>
