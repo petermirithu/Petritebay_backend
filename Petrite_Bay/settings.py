@@ -58,14 +58,14 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.common.CommonMiddleware',    
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',    
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',    
 ]
 
 ROOT_URLCONF = 'Petrite_Bay.urls'
@@ -111,13 +111,7 @@ cloudinary.config(
   api_secret = config('API_SECRET')
 )
 
-CORS_ORIGIN_WHITELIST = [        
-    "http://localhost:4200", 
-    "https://petrite-bay.now.sh",
-    "http://127.0.0.1:8080",
-    "http://192.168.0.160:8080",
-    "https://petrite-bay.vercel.app"
-]
+CORS_ORIGIN_ALLOW_ALL = True   
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS=config('EMAIL_USE_TLS')

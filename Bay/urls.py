@@ -15,7 +15,7 @@ urlpatterns = [
   path('api/profile/<int:user_id>',views.getprofile),
   url(r'api/updateprofile/$',views.update_profile),
   url(r'api/send_message/$',views.send_message),
-  url(r'^api/products/$',views.productListView.as_view()),      
+  url(r'^api/products/$',views.productListView.as_view()),
   url(r'^api/add_to_cart/$',views.add_to_cart),
   path('api/remove_from_cart/<int:user_id>/<int:product_id>',views.remove_from_cart),
   path('api/cart/<int:user_id>',views.get_user_Cart),
